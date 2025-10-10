@@ -35,7 +35,7 @@ for sample in 24300FL-07-01-01_S1_L006 24300FL-07-01-02_S2_L006; do
             else
                 echo "Downsampling to ${target_cov}x (fraction: $formatted_frac)"
                 seed=123  # Fixed seed for reproducibility
-                samtools view -b -s $seed$formatted_frac "$input_bam" | samtools sort -o "$output_bam"
+                samtools view -b -s $seed $formatted_frac "$input_bam" | samtools sort -o "$output_bam"
                 samtools index "$output_bam"
             fi
             
